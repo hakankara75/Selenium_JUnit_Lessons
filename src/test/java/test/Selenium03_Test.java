@@ -5,28 +5,32 @@ import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import javax.swing.text.Position;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 public class Selenium03_Test {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new EdgeDriver();
 
         driver.get("https://www.saucedemo.com/"); //istenen sayfaya gider
 
-        Point position= driver.manage().window().getPosition(); //sayfanin konumunu verir
-        System.out.println("position = " + position);
+        //sayfanin simdiki konumunu dogrulanir
+        Point expectedPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
+        System.out.println("expectedPosition = " + expectedPosition);
+        Point actualPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
+        System.out.println("actualPosition ayardan once = " + actualPosition);
+        assertEquals(expectedPosition, actualPosition);
 
-        Dimension size= driver.manage().window().getSize(); //sayfanin olculerini verir
-        System.out.println("size = " + size);
+        //sayfanin konumunu degistirilir ardindan degisiklik dogrulanir
+        driver.manage().window().setPosition(new Point(500,100)); //sayfaya yeni pozisyon verir
+        actualPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
+        System.out.println("actualPosition ayardan sonra= " + actualPosition);
+        expectedPosition=new Point(500,100);
+        assertEquals(expectedPosition, actualPosition);
 
-        Thread.sleep(2000);
-       driver.manage().window().maximize(); //sayfayi mini buyukluge alir
 
-        Thread.sleep(2000);
-        driver.manage().window().minimize(); //sayfayi maximum buyukluge alir
-
-        Thread.sleep(2000);
-        driver.manage().window().fullscreen(); //sayfayi tam ekran yapar
-
-        Thread.sleep(2000);
         driver.close(); //pencereyi kapatir
 
 
