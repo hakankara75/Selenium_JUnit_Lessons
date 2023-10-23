@@ -1,7 +1,6 @@
 package Topics;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class Selenium02_Navigate {
@@ -10,9 +9,10 @@ public class Selenium02_Navigate {
 
         driver.get("https://parabank.parasoft.com/parabank/index.htm"); //1. sayfa
 
+        Thread.sleep(2000); //2 sayfa arasinda gecisleri gormek icin bekleme kodu. Normalde olmaz. Gozle gormek icin koyduk. HARD WAIT
         driver.navigate().to("https://demo.applitools.com/"); //2. sayfa. yukaridaki sayfadan sonra bu sayfaya gitme komutu
 
-        Thread.sleep(2000); //2 sayfa arasinda gecisleri gormek icin bekleme kodu. Normalde olmaz. Gozle gormek icin koyduk. HARD WAIT
+        Thread.sleep(2000); //HARD WAIT
         driver.navigate().back(); // 1. sayfaya donme, geri donme komutu
 
         Thread.sleep(2000); //HARD WAIT

@@ -17,6 +17,7 @@ public class Selenium02_Test {
         String actualUrlParabank=driver.getCurrentUrl();
         assertEquals(expectedUrlParabank,actualUrlParabank);
 
+        Thread.sleep(2000);
         driver.navigate().to("https://demo.applitools.com/"); //2. sayfa. yukaridaki sayfadan sonra bu sayfaya gitme komutu
         String expectedUrlDemo="https://demo.applitools.com/";
         String actualUrlDemo=driver.getCurrentUrl();
