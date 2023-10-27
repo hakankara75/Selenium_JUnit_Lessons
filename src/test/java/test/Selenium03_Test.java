@@ -16,20 +16,20 @@ public class Selenium03_Test {
 
         driver.get("https://www.saucedemo.com/"); //istenen sayfaya gider
 
-//        //sayfanin simdiki konumunu dogrulanir
-//        Point expectedPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
-//        System.out.println("expectedPosition = " + expectedPosition);
-//        Point actualPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
-//        System.out.println("actualPosition ayardan once = " + actualPosition);
-//        assertEquals(expectedPosition, actualPosition);
-//
-//        Thread.sleep(2000);
-//        //sayfanin konumunu degistirilir ardindan degisiklik dogrulanir
-//        driver.manage().window().setPosition(new Point(500,100)); //sayfaya yeni pozisyon verir
-//        actualPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
-//        System.out.println("actualPosition ayardan sonra= " + actualPosition);
-//        expectedPosition=new Point(500,100);
-//        assertEquals(expectedPosition, actualPosition);
+        //sayfanin simdiki konumunu dogrulanir
+        Point expectedPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
+        System.out.println("expectedPosition = " + expectedPosition);
+        Point actualPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
+        System.out.println("actualPosition ayardan once = " + actualPosition);
+        assertEquals(expectedPosition, actualPosition);
+
+        Thread.sleep(2000);
+        //sayfanin konumunu degistirilir ardindan degisiklik dogrulanir
+        driver.manage().window().setPosition(new Point(500,100)); //sayfaya yeni pozisyon verir
+        actualPosition= driver.manage().window().getPosition(); //sayfanin konumunu verir
+        System.out.println("actualPosition ayardan sonra= " + actualPosition);
+        expectedPosition=new Point(500,100);
+        assertEquals(expectedPosition, actualPosition);
 
         Thread.sleep(2000);
         //sayfanin buyuklugu degistirilir ardindan degisiklik dogrulanir
