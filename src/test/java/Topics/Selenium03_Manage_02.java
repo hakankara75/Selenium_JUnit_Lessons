@@ -24,9 +24,9 @@ public class Selenium03_Manage_02 {
         driver.manage().addCookie(cookie); //cookie ekler
 
         Thread.sleep(2000);
-        LogEntries logs = driver.manage().logs().get(LogType.BROWSER);
+        LogEntries logs = driver.manage().logs().get(LogType.BROWSER); //log kayitlarini alir
         for (LogEntry logEntry : logs) {
-            System.out.println("Log: "+logEntry.getMessage());
+            System.out.println("Log: "+logEntry.getMessage()); //loglari ekrana yazdirir
         }
         String cookieName= String.valueOf(driver.manage().getCookieNamed("cookieName"));
         System.out.println("cookieName = " + cookieName);
