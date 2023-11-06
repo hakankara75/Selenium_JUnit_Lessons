@@ -9,7 +9,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 public class Selenium_04_WebelElements_Locators_Test {
 
     @Test
-    public void name() throws InterruptedException {
+    public void locators() throws InterruptedException {
 
         WebDriver driver = new EdgeDriver();
 
@@ -19,23 +19,7 @@ public class Selenium_04_WebelElements_Locators_Test {
         Thread.sleep(2000);
         driver.manage().window().maximize();
 
-        //arama kutusunun locate'i alinir
-        WebElement id_SearchBox= driver.findElement(By.id("twotabsearchtextbox")); //id
 
-
-        WebElement xpath_SearchButton= driver.findElement(By.xpath("//input[@value='Go']")); //xpath
-
-        WebElement cssSelector_English= driver.findElement(By.cssSelector("span[class='icp-nav-flag icp-nav-flag-us icp-nav-flag-lop']")); //cssSelector
-
-        WebElement name_SearchBox= driver.findElement(By.name("site-search")); //name
-
-        WebElement className_SearchBox= driver.findElement(By.className("nav-progressive-attribute")); //className
-
-        WebElement tagName_Header= driver.findElement(By.tagName("header")); //tagName
-
-        WebElement linkText_English= driver.findElement(By.linkText("EN")); //linkText
-
-        WebElement partialLinkText_English= driver.findElement(By.partialLinkText("Hello, sign in")); //partialLinkText
 
     }
 }
