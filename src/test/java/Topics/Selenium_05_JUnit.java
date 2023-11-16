@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class Selenium_05_JUnit {
     /*
-    Test Anatationlari bizim test yapapilecegimiz
+    Test AnatAnnotationlari bizim test yapapilecegimiz
     Testimizin gecip kaldigini gosteren
     Main metoda ihtiyac birakmayan kod bloklaridir
     @Before  ==> Her bir @Test'ten once calisir
@@ -14,7 +14,7 @@ public class Selenium_05_JUnit {
     @AfterClass  ==> Her bir classdan sonra calisir
     @Ignore    ==> Calismasini istemedigimiz kodlarin kodlarin basina koyulur
     @Test   ==> Test kodlarinin basina koyulur.
-    Anatotion: Bir veri hakkinda bilgi barindiran meta datalardir.
+    Annotation: Bir veri hakkinda bilgi barindiran meta datalardir.
     Javadaki compiler gibi gorev yapar.
      */
     public static void main(String[] args) {
