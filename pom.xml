@@ -34,6 +34,13 @@
         <scope>test</scope>
     </dependency>
 
+    <!-- Extent Report icin -->
+    <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+    <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>4.0.9</version>
+    </dependency>
 
 
 

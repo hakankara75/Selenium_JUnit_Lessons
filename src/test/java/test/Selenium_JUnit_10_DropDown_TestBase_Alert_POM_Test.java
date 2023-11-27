@@ -11,6 +11,8 @@ import utilities.TestBase;
 
 import java.time.Duration;
 
+import static org.junit.Assert.*;
+
 public class Selenium_JUnit_10_DropDown_TestBase_Alert_POM_Test extends TestBase {
 
     @Test
