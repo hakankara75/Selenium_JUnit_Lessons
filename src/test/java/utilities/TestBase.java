@@ -3,16 +3,24 @@ package utilities;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -102,9 +110,52 @@ public abstract class TestBase {
     }
 
     /**
-     * alerti reddedecek edecek metot
+     * alerti reddedecek metot
      */
     public static void dismissAlert(){
         driver.switchTo().alert().dismiss();
+    }
+
+    /**
+     * bu metot ile açık olan pencerelerden indexi verilene geçiş yapılır
+     * @param window geçilmek istenen pencerenin indexi
+     */
+    public static void switchToWindow(int window){
+        List<String> allWindowHandles = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(allWindowHandles.get(window));
+
+    }
+
+    /**
+     * tum sayfanin screenshoot alinmasini saglar
+     */
+    public static void tumSayfaScreenShoot(){
+        String tarih= new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu= "TestOutput/screenshot"+ tarih+ ".png";
+
+        TakesScreenshot ts= (TakesScreenshot) driver;
+        try {
+            FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+
+    /** Bir web elementin screenshoot alinmasini saglar
+     * @param element screenshoot alinacak olan elementin locate verilir
+     */
+    public  static void webElementScreenShoot(WebElement element){
+
+        String tarih= new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
+        String dosyaYolu= "TestOutput/screenshot"+ tarih+ ".png";
+
+        try {
+            FileUtils.copyFile(element.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }

@@ -42,6 +42,14 @@
         <version>4.0.9</version>
     </dependency>
 
+    <!--Microsoft Office belgeleriyle (Word, Excel, PowerPoint) çalışmak için kullanılır -->
+    <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>5.2.3</version>
+    </dependency>
+
 
 
 </dependencies>
