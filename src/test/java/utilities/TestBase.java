@@ -61,7 +61,7 @@ public abstract class TestBase {
     public void tearDown() throws InterruptedException {
         extentReports.flush(); //extent report u olusturur.
         Thread.sleep(2000);
-        //driver.quit();
+        driver.quit();
 
     }
 

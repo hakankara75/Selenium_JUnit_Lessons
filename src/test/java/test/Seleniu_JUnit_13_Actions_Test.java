@@ -26,11 +26,12 @@ public class Seleniu_JUnit_13_Actions_Test extends TestBase {
 
     @Test
     public void actions() {
+        Actions actions=new Actions(driver);
 //        kullanici "https://www.migros.com.tr/" sitesine gider
         driver.get("https://www.migros.com.tr/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
-        Actions actions=new Actions(driver);
+
 //        kullanici coocies kabul eder
         WebElement cookies= driver.findElement(By.id("accept-all"));
         cookies.click();
@@ -82,5 +83,67 @@ public class Seleniu_JUnit_13_Actions_Test extends TestBase {
 
     }
 
+    @Test
+    public void contextClick() {
+        Actions actions=new Actions(driver);
+                /*
+          kullanici "https://the-internet.herokuapp.com/context_menu" sitesine gider
+          kullanici sayfadaki kutuya sag klik yapar
+         kullanici acilan alerti kapatir
+         */
 
+        //kullanici "https://the-internet.herokuapp.com/context_menu" sitesine gider
+    driver.get("https://the-internet.herokuapp.com/context_menu");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+        //  kullanici sayfadaki kutuya sag klik yapar
+        WebElement rectangle=driver.findElement(By.id("hot-spot"));
+        actions.contextClick(rectangle).perform();
+        wait(2);
+
+        //kullanici acilan alerti kapatir
+        driver.switchTo().alert().accept();
+
+    }
+
+    @Test
+    public void moveToElement() {
+        /*
+         kullanici "https://www.etstur.com/" sitesine gider
+         kullanici sayfadaki otel linkinin ustunde bekler
+ */
+        Actions actions=new Actions(driver);
+
+        //kullanici "https://www.etstur.com/" sitesine gider
+        driver.get("https://www.etstur.com/");
+
+        //kullanici sayfadaki otel linkinin ustunde bekler
+        WebElement otel=driver.findElement(By.xpath("(//a[@href='javascript:;'])[1]"));
+        actions.moveToElement(otel).perform();
+        wait(2);
+    }
+
+    @Test
+    public void dragDrop() {
+        /*
+        // kullanici "https://jqueryui.com/droppable/" sitesine gider
+        // kullanici drag nesnesini drop ustune goturur
+ */
+
+        Actions actions=new Actions(driver);
+
+        // kullanici "https://jqueryui.com/droppable/" sitesine gider
+        driver.get("https://jqueryui.com/droppable/");
+
+//        WebElement frame=driver.findElement(By.cssSelector("iframe[class='demo-frame']"));
+//        driver.switchTo().frame(frame);
+        driver.switchTo().frame(0);
+
+        // kullanici drag nesnesini drop ustune goturur
+        WebElement drag= driver.findElement(By.id("draggable"));
+        WebElement drop= driver.findElement(By.id("droppable"));
+
+        actions.dragAndDrop(drag,drop).perform();
+
+    }
 }
