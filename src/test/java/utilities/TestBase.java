@@ -11,6 +11,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -60,7 +61,7 @@ public abstract class TestBase {
     public void tearDown() throws InterruptedException {
         extentReports.flush(); //extent report u olusturur.
         Thread.sleep(2000);
-        driver.quit();
+        //driver.quit();
 
     }
 
@@ -157,5 +158,9 @@ public abstract class TestBase {
             throw new RuntimeException(e);
         }
 
+    }
+    public static void scrollToElementWithActions(WebDriver driver, WebElement element){
+        Actions actions= new Actions(driver);
+        actions.scrollToElement(element).perform();
     }
 }

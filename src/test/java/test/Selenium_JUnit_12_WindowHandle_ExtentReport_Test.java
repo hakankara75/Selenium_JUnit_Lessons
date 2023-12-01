@@ -11,7 +11,7 @@ import java.util.Set;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
-public class Selenium_JUnit_12_WindowHandle_Test extends TestBase {
+public class Selenium_JUnit_12_WindowHandle_ExtentReport_Test extends TestBase {
     /*
 Kullanici demoqa sitesine gider "https://demoqa.com/browser-windows"
 kullanici sayfa handle alir
